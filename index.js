@@ -1,13 +1,39 @@
 class Node {
-    constructor(x) {
-        this.data = x;
+    constructor(data) {
+        this.data = data;
         this.next = null;
     }
 }
 
-// Function to add a new node in the beginning of the linked list
-function pushNode(head_ref, data_val) {
-    let new_node = new Node(data_val);
-    new_node.next = head_ref[0];
-    head_ref[0] = new_node;
+class SinglyLinkedList {
+    constructor() {
+        this.head = null;
+    }
+
+    // Add new node to the end of the list
+    add(data) {
+        const newNode = new Node(data);
+        if (!this.head) {
+            this.head = newNode;
+        } else {
+            let current = this.head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+    }
+
+    // Add your solution here
+    findMiddle(){
+    }
+
+    // Display all nodes
+    display() {
+        let current = this.head;
+        while (current) {
+            console.log(current.data);
+            current = current.next;
+        }
+    }
 }
