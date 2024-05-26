@@ -26,6 +26,19 @@ class SinglyLinkedList {
 
     // Add your solution here
     findMiddle(){
+
+if (!this.head) return null;
+
+        const slow = this.head;
+        const fast = this.head;
+
+        while (fast && fast.next) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow.data;
+        
     }
 
     // Display all nodes
